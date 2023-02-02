@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="container_temp">
+        <item name="android:background">@drawable/rectangle_temp</item>
+    </style>
+    <style name="container_light">
+        <item name="android:background">@drawable/rectangle_light</item>
+    </style>
+    <style name="container_title">
+        <item name="android:background">@drawable/rectangle_title</item>
+    </style>
+</resources>
