@@ -9,18 +9,18 @@
 
     <TextView
         style="@style/container_temp"
-        android:layout_width="178dp"
-        android:layout_height="115dp"
+        android:layout_width="380dp"
+        android:layout_height="120dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="221dp" />
+        tools:layout_editor_absoluteY="166dp" />
 
     <TextView
         android:id="@+id/textView"
         style="@style/container_light"
-        android:layout_width="174dp"
-        android:layout_height="114dp"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="222dp" />
+        android:layout_width="380dp"
+        android:layout_height="120dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="309dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -31,5 +31,14 @@
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/temperature_text"
+        android:layout_width="84dp"
+        android:layout_height="51dp"
+        android:text="@string/temperature"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="197dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
