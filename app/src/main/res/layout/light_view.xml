@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container_temp"
-    style="@style/container_temp"
+    android:id="@+id/light_container"
+    style="@style/container_light"
     android:layout_width="380dp"
     android:layout_height="120dp"
     android:layout_marginTop="32dp"
@@ -10,32 +10,24 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Temperature ambiante"
-        android:textColor="@color/white"
-        android:fontFamily="@font/chakrapetch_medium"/>
+        tools:text="Lumière éteinte"
+        android:text="@string/light_state"
+        android:fontFamily="@font/chakrapetch_medium"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:gravity="center">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/light_icon"
             android:layout_width="61dp"
             android:layout_height="90dp"
-            android:src="@drawable/temp_icon" />
-
-        <TextView
-            android:id="@+id/text_temp"
-            style="@style/temperature_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chakrapetch_medium"
-            android:layout_marginLeft="20dp"
-            tools:text="23°c"/>
+            android:src="@drawable/lamp_off"/>
     </LinearLayout>
 </LinearLayout>
