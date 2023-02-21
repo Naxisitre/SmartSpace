@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         findViewById<TemperatureView>(R.id.temperatueAmbiante).setTemp(24)
+        findViewById<TemperatureView>(R.id.temperatueAmbiante)
     }
 
 }
