@@ -6,11 +6,17 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel : ViewModel() {
-    val myResponse: MutableLiveData<Data> = MutableLiveData()
-
+    val myResponse: MutableLiveData<Data?> = MutableLiveData()
+    var error : Boolean = true
     fun getData() {
         viewModelScope.launch(){
-            myResponse.value = DataNetwork.retrofit.getData()
+            try {
+                myResponse.value = DataNetwork.retrofit.getData()
+                error = false
+            } catch (e: Exception) {
+                error = true
+            }
+
         }
     }
 }

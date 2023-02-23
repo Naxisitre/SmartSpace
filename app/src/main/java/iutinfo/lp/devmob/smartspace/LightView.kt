@@ -10,13 +10,17 @@ class LightView(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
     init {
         inflate(context, R.layout.light_view, this)
     }
-    fun setLight(light: String?) {
+    fun setLight(light: String) {
         if (light == "On") {
             findViewById<ImageView>(R.id.light_icon).setImageResource(R.drawable.lamp_on)
             findViewById<TextView>(R.id.title_light).text = resources.getString(R.string.light_state, "allumé")
-        } else {
+        }
+        else if(light == "Off"){
             findViewById<ImageView>(R.id.light_icon).setImageResource(R.drawable.lamp_off)
             findViewById<TextView>(R.id.title_light).text = resources.getString(R.string.light_state, "éteinte")
+        }
+        else if(light == "Error") {
+
         }
     }
 }

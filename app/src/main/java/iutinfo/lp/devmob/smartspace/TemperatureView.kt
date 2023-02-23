@@ -13,6 +13,9 @@ class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(cont
     }
 
     fun setTemp(temp: Int?) {
+        if (temp == null){
+            findViewById<TextView>(R.id.text_temp).text = "--°C"
+        }
         findViewById<TextView>(R.id.text_temp).text = "$temp°C"
     }
 }
