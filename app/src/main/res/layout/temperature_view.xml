@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container_temp"
     style="@style/container_temp"
     android:layout_width="380dp"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="32dp"
     android:gravity="center"
     android:orientation="vertical">
@@ -16,12 +17,13 @@
         android:layout_centerHorizontal="true"
         android:text="Temperature ambiante"
         android:textColor="@color/white"
-        android:fontFamily="@font/chakrapetch_medium"/>
+        android:fontFamily="@font/chakrapetch_medium"
+        android:textSize="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imageView"
@@ -37,5 +39,32 @@
             android:fontFamily="@font/chakrapetch_medium"
             android:layout_marginLeft="20dp"
             tools:text="23°c"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/attention"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/attention"
+            />
+
+        <TextView
+            android:id="@+id/refresh_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/chakrapetch_medium"
+            android:text="TextView"
+            android:textAlignment="center"/>
     </LinearLayout>
 </LinearLayout>

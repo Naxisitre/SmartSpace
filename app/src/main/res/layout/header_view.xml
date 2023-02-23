@@ -9,18 +9,18 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_gravity="center"
         android:id="@+id/room_name"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/chakrapetch_medium"
-        android:text="Niort Tech"
+        android:text="Salle Niort Tech"
         android:textColor="@color/white"
         android:textSize="35dp" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/hello_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,4 +31,6 @@
         android:textColor="@color/white"
         android:textSize="35dp"
         tools:text="Bonjour, hjykjygk" />
+-->
+
 </LinearLayout>

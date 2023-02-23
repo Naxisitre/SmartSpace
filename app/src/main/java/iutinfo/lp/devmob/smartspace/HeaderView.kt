@@ -9,8 +9,8 @@ class HeaderView(context: Context, attrs : AttributeSet?) : FrameLayout(context,
     init {
         inflate(context, R.layout.header_view, this)
     }
-     fun setName(name: String) {
-         findViewById<TextView>(R.id.hello_text).text =
-             resources.getString(R.string.hello_user, name)
-     }
+     //fun setName(name: String) {
+      //   findViewById<TextView>(R.id.hello_text).text =
+        //     resources.getString(R.string.hello_user, name)
+     //}
 }

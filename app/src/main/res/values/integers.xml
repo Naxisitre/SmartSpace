@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="refresh_time">10000</integer>
+    <integer name="refresh_time">30000</integer>
 </resources>
