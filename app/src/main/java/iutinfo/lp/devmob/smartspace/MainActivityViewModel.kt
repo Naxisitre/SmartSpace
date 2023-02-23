@@ -7,15 +7,18 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel : ViewModel() {
     val myResponse: MutableLiveData<Data?> = MutableLiveData()
-    var error : Boolean = true
+    var error : Boolean = false
     var errorTime : Int = 0
     fun getData() {
         viewModelScope.launch(){
             try {
                 myResponse.value = DataNetwork.retrofit.getData()
                 error = false
+                errorTime = 0
             } catch (e: Exception) {
+                errorTime++
                 error = true
+
             }
 
         }

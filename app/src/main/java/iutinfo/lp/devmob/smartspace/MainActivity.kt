@@ -34,11 +34,9 @@ class MainActivity : AppCompatActivity() {
     private fun refreshData(viewModel: MainActivityViewModel) {
         viewModel.getData()
         if(viewModel.error){
-            val error = viewModel.errorTime + 1
-            if (error >= 3) {
                 findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(null, "Error")
                 findViewById<LightView>(R.id.etatLumiere).setLight("Error", "Error")
-            }
+
         }
         viewModel.myResponse.observe(this, Observer {
             if (it != null) {

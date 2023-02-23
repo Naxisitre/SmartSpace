@@ -12,6 +12,7 @@ class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(cont
 
     init {
         inflate(context, R.layout.temperature_view, this)
+        findViewById<ImageView>(R.id.attention).visibility = GONE
     }
 
     fun setTemp(temp: Int?, created_at: String) {

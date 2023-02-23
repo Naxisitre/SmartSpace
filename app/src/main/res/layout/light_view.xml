@@ -54,7 +54,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:fontFamily="@font/chakrapetch_medium"
-            android:text="TextView"
+            android:text="Derniere actualisation :"
             android:textAlignment="center"/>
     </LinearLayout>
 </LinearLayout>

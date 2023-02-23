@@ -9,6 +9,8 @@ import android.widget.TextView
 class LightView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs){
     init {
         inflate(context, R.layout.light_view, this)
+        findViewById<ImageView>(R.id.attention_light).visibility = GONE
+        findViewById<TextView>(R.id.title_light).text = "Lumière"
     }
     fun setLight(light: String, created_at: String) {
         if (light == "On") {
@@ -24,6 +26,8 @@ class LightView(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             findViewById<ImageView>(R.id.attention_light).visibility = GONE
         }
         else if(light == "Error") {
+            findViewById<TextView>(R.id.title_light).text = resources.getString(R.string.light_state, "")
+            findViewById<TextView>(R.id.refresh_text_light).text = resources.getString(R.string.refresh_warning_text, )
             findViewById<ImageView>(R.id.attention_light).visibility = VISIBLE
         }
     }
