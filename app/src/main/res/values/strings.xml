@@ -4,5 +4,5 @@
     <string name="hello_user">Bonjour, %1$s</string>
     <string name="light_state">Lumière %1$s</string>
     <string name="refresh_text">Dernière actualisation à %1$s</string>
-    <string name="refresh_warning_text">Dernière actualisation il y a plus de 15 min</string>
+    <string name="refresh_warning_text">Erreur de Connexion</string>
 </resources>

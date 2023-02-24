@@ -33,20 +33,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshData(viewModel: MainActivityViewModel) {
         viewModel.getData()
+        Log.i("Error", viewModel.error.toString())
         if(viewModel.error){
                 findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(null, "Error")
                 findViewById<LightView>(R.id.etatLumiere).setLight("Error", "Error")
-
         }
-        viewModel.myResponse.observe(this, Observer {
-            if (it != null) {
-                val temp = (it.Temperature).subSequence(0, 2).toString().toInt()
-                val hour = (it.createdAt).subSequence(11, 13).toString().toInt() + 1
-                val minutes = (it.createdAt).subSequence(14, 16).toString()
-                findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(temp, "$hour h $minutes")
-                findViewById<LightView>(R.id.etatLumiere).setLight(it.Lumiere,"$hour h $minutes")
-            }
-        })
+        else {
+            viewModel.myResponse.observe(this, Observer {
+                if (it != null) {
+                    val temp = (it.Temperature).subSequence(0, 2).toString().toInt()
+                    val hour = (it.createdAt).subSequence(11, 13).toString().toInt() + 1
+                    val minutes = (it.createdAt).subSequence(14, 16).toString()
+                    findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(temp, "$hour h $minutes")
+                    findViewById<LightView>(R.id.etatLumiere).setLight(it.Lumiere,"$hour h $minutes")
+                }
+            })
+        }
     }
-
 }

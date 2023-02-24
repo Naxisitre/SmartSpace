@@ -26,6 +26,7 @@ class LightView(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             findViewById<ImageView>(R.id.attention_light).visibility = GONE
         }
         else if(light == "Error") {
+            findViewById<ImageView>(R.id.light_icon).setImageResource(R.drawable.lamp_off)
             findViewById<TextView>(R.id.title_light).text = resources.getString(R.string.light_state, "")
             findViewById<TextView>(R.id.refresh_text_light).text = resources.getString(R.string.refresh_warning_text, )
             findViewById<ImageView>(R.id.attention_light).visibility = VISIBLE

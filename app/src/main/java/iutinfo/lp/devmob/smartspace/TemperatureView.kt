@@ -2,10 +2,10 @@ package iutinfo.lp.devmob.smartspace
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import java.time.LocalDateTime
 
 
 class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
@@ -16,6 +16,7 @@ class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(cont
     }
 
     fun setTemp(temp: Int?, created_at: String) {
+        Log.i("TempNull", temp.toString())
         if (temp == null){
             findViewById<TextView>(R.id.text_temp).text = "--°C"
             findViewById<ImageView>(R.id.attention).visibility = VISIBLE
