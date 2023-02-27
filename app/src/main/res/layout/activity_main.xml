@@ -20,8 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerView" />
+        app:layout_constraintTop_toBottomOf="@+id/infoSalleTech" />
 
     <iutinfo.lp.devmob.smartspace.LightView
         android:id="@+id/etatLumiere"
@@ -31,4 +32,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/temperatureAmbiante" />
 
+    <TextView
+        android:id="@+id/infoSalleTech"
+        android:layout_width="277dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/chakrapetch_medium"
+        android:text="Info Salle Tech"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
