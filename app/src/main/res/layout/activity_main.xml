@@ -32,13 +32,13 @@
         app:layout_constraintTop_toBottomOf="@+id/temperatureAmbiante" />
 
     <TextView
-        android:id="@+id/title_light"
+        android:id="@+id/button_prob"
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signaler un problème"
         android:onClick="onProblemClicked"
-        android:layout_margin="25dp"
+        android:layout_margin="60dp"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

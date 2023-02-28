@@ -2,10 +2,10 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container_temp"
+    android:id="@+id/container_popup"
     style="@style/popup_style"
-    android:layout_width="250dp"
-    android:layout_height="150dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginTop="20dp"
     android:orientation="vertical">
@@ -21,14 +21,13 @@
         android:fontFamily="@font/chakrapetch_medium"
         android:text="@string/nfc_text_state"
         android:textColor="@color/black"
-        android:textSize="15sp"
-        tools:text="Le NFC est déjà activé" />
+        android:textSize="18sp"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
-
         <TextView
             android:id="@+id/text_nfc"
             android:layout_width="160dp"
@@ -38,20 +37,21 @@
             android:text="@string/info_comp_nfc"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="13sp"
-            tools:text="Vous pouvez vous identifiez en utilisant votre carte izly" />
+            android:textSize="16sp" />
     </LinearLayout>
         <TextView
-            android:id="@+id/title_light"
+            android:id="@+id/active_nfc"
             style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="S'identifier"
+            android:text="@string/active_nfc"
             android:fontFamily="@font/chakrapetch_medium"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_gravity="center"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            tools:text="Activer le NFC"/>
 </LinearLayout>
