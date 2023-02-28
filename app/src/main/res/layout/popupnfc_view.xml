@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spinner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AA000000"
+    tools:ignore="MissingDefaultResource"
+    >
+<LinearLayout
+    android:id="@+id/container_temp"
+    style="@style/popup_style"
+    android:layout_width="250dp"
+    android:layout_height="150dp"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/nfc_text_state"
+        android:textColor="@color/black"
+        android:fontFamily="@font/chakrapetch_medium"
+        android:textSize="15sp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:text="Le NFC est déjà activé"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/text_nfc"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chakrapetch_medium"
+            android:textAlignment="center"
+            android:text="@string/info_comp_nfc"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            tools:text="Vous pouvez vous identifiez en utilisant votre carte izly"/>
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonNFC"
+            style="@style/container_prob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp">
+
+            <TextView
+                android:id="@+id/title_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S'identifier"
+                android:fontFamily="@font/chakrapetch_medium"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

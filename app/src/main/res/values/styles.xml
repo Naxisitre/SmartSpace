@@ -16,4 +16,7 @@
     <style name="container_prob">
         <item name="android:background">@drawable/rectangle_prob</item>
     </style>
+    <style name="popup_style">
+        <item name="android:background">@drawable/popup_style</item>
+    </style>
 </resources>

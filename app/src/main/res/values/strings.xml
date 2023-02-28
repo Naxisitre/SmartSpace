@@ -5,4 +5,6 @@
     <string name="light_state">Lumière %1$s</string>
     <string name="refresh_text">Dernière actualisation à %1$s</string>
     <string name="refresh_warning_text">Dernière actualisation il y a plus de 15 min</string>
+    <string name="nfc_text_state">%1$s</string>
+    <string name="info_comp_nfc">%1$s</string>
 </resources>

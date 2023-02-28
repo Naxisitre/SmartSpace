@@ -1,6 +1,8 @@
 package iutinfo.lp.devmob.smartspace
 
 
+import android.app.PendingIntent
+import android.content.Intent
 import android.nfc.NfcAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 class MainActivity : AppCompatActivity() {
 
     private var nfcAdapter: NfcAdapter? = null
-
+    private var pendingIntent: PendingIntent? = null
     private var handler = Handler(Looper.getMainLooper())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+        pendingIntent = PendingIntent.getActivity(this, 0, Intent(this, this.javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
         refreshData(viewModel);
         refreshDataLoop(viewModel);
