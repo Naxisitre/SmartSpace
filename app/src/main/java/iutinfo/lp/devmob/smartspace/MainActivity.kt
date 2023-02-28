@@ -1,6 +1,7 @@
 package iutinfo.lp.devmob.smartspace
 
 
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NfcAdapter
@@ -9,6 +10,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
@@ -24,8 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
-        pendingIntent = PendingIntent.getActivity(this, 0, Intent(this, this.javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
+        //this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+       // pendingIntent = PendingIntent.getActivity(this, 0, Intent(this, this.javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
         refreshData(viewModel);
         refreshDataLoop(viewModel);
@@ -54,6 +56,10 @@ class MainActivity : AppCompatActivity() {
                 findViewById<LightView>(R.id.etatLumiere).setLight(it.Lumiere,"$hour h $minutes")
             }
         })
+    }
+
+    fun onProblemClicked(view: View) {
+        AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
     }
 
 }
