@@ -29,15 +29,15 @@ class MainActivity : AppCompatActivity() {
         //this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
        // pendingIntent = PendingIntent.getActivity(this, 0, Intent(this, this.javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
-        refreshData(viewModel);
-        refreshDataLoop(viewModel);
+        refreshData(viewModel)
+        refreshDataLoop(viewModel)
     }
 
     private fun refreshDataLoop(viewModel: MainActivityViewModel) {
         handler.postDelayed({
             refreshData(viewModel)
             refreshDataLoop(viewModel)
-        }, resources.getInteger(R.integer.refresh_time).toLong());
+        }, resources.getInteger(R.integer.refresh_time).toLong())
     }
 
     private fun refreshData(viewModel: MainActivityViewModel) {
@@ -47,15 +47,18 @@ class MainActivity : AppCompatActivity() {
                 findViewById<LightView>(R.id.etatLumiere).setLight("Error", "Error")
 
         }
-        viewModel.myResponse.observe(this, Observer {
+        viewModel.myResponse.observe(this) {
             if (it != null) {
                 val temp = (it.Temperature).subSequence(0, 2).toString().toInt()
                 val hour = (it.createdAt).subSequence(11, 13).toString().toInt() + 1
                 val minutes = (it.createdAt).subSequence(14, 16).toString()
-                findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(temp, "$hour h $minutes")
-                findViewById<LightView>(R.id.etatLumiere).setLight(it.Lumiere,"$hour h $minutes")
+                findViewById<TemperatureView>(R.id.temperatureAmbiante).setTemp(
+                    temp,
+                    "$hour h $minutes"
+                )
+                findViewById<LightView>(R.id.etatLumiere).setLight(it.Lumiere, "$hour h $minutes")
             }
-        })
+        }
     }
 
     fun onProblemClicked(view: View) {

@@ -41,27 +41,17 @@
             android:textSize="13sp"
             tools:text="Vous pouvez vous identifiez en utilisant votre carte izly" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/buttonNFC"
-        style="@style/container_prob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="horizontal">
-
         <TextView
             android:id="@+id/title_light"
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/chakrapetch_medium"
             android:text="S'identifier"
+            android:fontFamily="@font/chakrapetch_medium"
             android:textColor="@color/white"
-            android:textSize="15sp" />
-    </LinearLayout>
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="10dp"/>
 </LinearLayout>

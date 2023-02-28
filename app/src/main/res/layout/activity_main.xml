@@ -33,15 +33,13 @@
 
     <TextView
         android:id="@+id/title_light"
+        style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signaler un problème"
-        android:fontFamily="@font/chakrapetch_medium"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_margin="20dp"
         android:onClick="onProblemClicked"
-        style="@style/container_prob"
+        android:layout_margin="25dp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
