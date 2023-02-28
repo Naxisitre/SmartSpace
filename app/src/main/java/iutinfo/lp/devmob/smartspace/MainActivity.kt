@@ -1,5 +1,7 @@
 package iutinfo.lp.devmob.smartspace
 
+
+import android.nfc.NfcAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,16 +12,18 @@ import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
+    private var nfcAdapter: NfcAdapter? = null
+
     private var handler = Handler(Looper.getMainLooper())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        //findViewById<TemperatureView>(R.id.temperatueAmbiante).setTemp("24")
 
-        //findViewById<LightView>(R.id.etatLumiere).setLight("On")
-        //findViewById<HeaderView>(R.id.headerView).setName("Alexis")
         val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+
+        this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+
         refreshData(viewModel);
         refreshDataLoop(viewModel);
     }
