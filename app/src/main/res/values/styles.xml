@@ -33,4 +33,7 @@
     <style name="popup_style">
         <item name="android:background">@drawable/popup_style</item>
     </style>
+    <style name="photo">
+        <item name="android:background">@drawable/rectangle_photo</item>
+    </style>
 </resources>
