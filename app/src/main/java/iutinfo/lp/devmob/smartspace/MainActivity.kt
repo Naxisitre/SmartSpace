@@ -1,9 +1,7 @@
 package iutinfo.lp.devmob.smartspace
 
 
-import android.app.AlertDialog
 import android.app.PendingIntent
-import android.content.Intent
 import android.nfc.NfcAdapter
 import android.os.*
 import android.view.View
