@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.smartspace.API
 
 import retrofit2.http.GET
 

@@ -14,7 +14,7 @@
         android:layout_height="528dp"
         android:gravity="center"
         android:textSize="20dp"
-        android:FontFamily="@font/chakrapetch_medium"
+        android:fontFamily="@font/chakrapetch_medium"
         android:textColor="@color/black"
         android:text="Placer votre carte ilzy"
         app:layout_constraintBottom_toBottomOf="parent"

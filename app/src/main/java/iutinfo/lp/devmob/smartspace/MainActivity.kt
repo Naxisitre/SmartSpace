@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View.GONE
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import iutinfo.lp.devmob.smartspace.Composants.LightView
+import iutinfo.lp.devmob.smartspace.Composants.TemperatureView
+import iutinfo.lp.devmob.smartspace.ViewModel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun onProblemClicked(view: View, intent: Intent) {
+    fun onProblemClicked(view: View) {
         val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
         var intentNFC: Intent?
         if(!nfcAdapter!!.isEnabled){
@@ -85,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
         else if(nfcAdapter!!.isEnabled){
             dialog.findViewById<TextView>(R.id.title).text = resources.getString(R.string.nfc_text_state, "activé")
-            dialog.findViewById<TextView>(R.id.text_nfc).text = resources.getString(R.string.info_comp_nfc, "placer votre carte izly sur votre téléphone pour vous identifier")
+            dialog.findViewById<TextView>(R.id.text_nfc).text = resources.getString(R.string.info_comp_nfc, "Identifiez vous en cliquant sur le bouton en dessous pour signaler un problème")
             dialog.findViewById<TextView>(R.id.active_nfc).text = resources.getString(R.string.active_nfc, "Vous identifiez")
             dialog.findViewById<TextView>(R.id.active_nfc).setOnClickListener {
                 val intent = Intent(this, AuthentificationActivity::class.java)
