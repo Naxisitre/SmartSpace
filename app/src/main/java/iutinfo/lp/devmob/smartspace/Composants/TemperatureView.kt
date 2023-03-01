@@ -1,11 +1,11 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.smartspace.Composants
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import java.time.LocalDateTime
+import iutinfo.lp.devmob.smartspace.R
 
 
 class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {

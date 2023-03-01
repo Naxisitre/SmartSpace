@@ -1,8 +1,10 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.smartspace.ViewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import iutinfo.lp.devmob.smartspace.API.Data
+import iutinfo.lp.devmob.smartspace.API.DataNetwork
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel : ViewModel() {
