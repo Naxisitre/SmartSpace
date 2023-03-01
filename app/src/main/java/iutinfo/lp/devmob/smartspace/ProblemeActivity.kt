@@ -8,8 +8,10 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -23,6 +25,8 @@ class ProblemeActivity() : AppCompatActivity() {
             val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri)
             findViewById<ImageView>(R.id.retourPhoto).setImageBitmap(bitmap)
             findViewById<ImageView>(R.id.retourPhoto).visibility = VISIBLE
+            findViewById<TextView>(R.id.text_photo).visibility = GONE
+            findViewById<ImageView>(R.id.viewImage).visibility = GONE
         }
     }
 

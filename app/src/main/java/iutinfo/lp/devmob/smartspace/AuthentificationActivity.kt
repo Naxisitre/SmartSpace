@@ -17,14 +17,14 @@ class AuthentificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentification_view)
-
+        supportActionBar?.hide()
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
 
         pendingIntent = PendingIntent.getActivity(
             this,
             0,
             Intent(this, this.javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
-            PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_MUTABLE
         )
     }
 
@@ -51,8 +51,8 @@ class AuthentificationActivity : AppCompatActivity() {
             val tag: Tag = (intent.getParcelableExtra<Parcelable>(NfcAdapter.EXTRA_TAG) as Tag?)!!
             Log.i("NFC", "Tag ID: ${tag.id}")
             if (tag.id != null) {
-                //val intentActivity = Intent(this, ProblemActivity::class.java)
-                //startActivity(intentActivity)
+                val intentActivity = Intent(this, ProblemeActivity::class.java)
+                startActivity(intentActivity)
             }
         }
     }

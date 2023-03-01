@@ -7,7 +7,7 @@
     <string name="refresh_warning_text">Dernière actualisation il y a plus de 15 min</string>
     <string name="nfc_text_state">Le NFC est %1$s</string>
     <string name="info_comp_nfc">%1$s</string>
-    <string name="title_prob">Description du problème</string>
+    <string name="title_prob">Décrivez nous votre problème</string>
     <string name="send_prob">Signaler le problème</string>
     <string name="photo_text">Ajouter une photo du problème</string>
     <string name="desc_prob">Décrivez-nous votre problème</string>

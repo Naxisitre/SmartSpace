@@ -20,6 +20,9 @@
             android:name=".AuthentificationActivity"
             android:exported="false" />
         <activity
+            android:name=".ProblemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop">
