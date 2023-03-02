@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ProblemeActivity"
     android:background="@color/black_background">
 
     <iutinfo.lp.devmob.smartspace.Composants.HeaderView
@@ -44,23 +44,25 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_margin="20dp">
+
             <LinearLayout
                 android:id="@+id/photo"
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="activateCamera"
                 style="@style/popup_style"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center">
-
                 <ImageView
                     android:id="@+id/retourPhoto"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="200dp"
+                    android:layout_gravity="center"
                     android:visibility="gone"
-                    android:rotation="90"/>
+                    android:rotation="90"
+                    />
                 <TextView
                     android:layout_gravity="center"
                     android:id="@+id/text_photo"
@@ -77,6 +79,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/photo"
+                    android:layout_marginBottom="20dp"
                     />
 
             </LinearLayout>
@@ -101,7 +104,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/desc_hint"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:autofillHints="" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -6,19 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".AuthentificationActivity"
     android:background="@color/black_background">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
     <TextView
         android:id="@+id/textView"
         style="@style/popup_style"
         android:layout_width="315dp"
         android:layout_height="528dp"
-        android:gravity="center"
-        android:textSize="20dp"
         android:fontFamily="@font/chakrapetch_medium"
+        android:gravity="center"
+        android:text="@string/ExplicationAuth"
         android:textColor="@color/black"
-        android:text="Placer votre carte ilzy"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAcceuil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/buttonAcceuil"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="retourAcceuil"
+        android:text="@string/RetourAcceuilButton"
+        android:textSize="25sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

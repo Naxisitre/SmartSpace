@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import iutinfo.lp.devmob.smartspace.API.Data
-import iutinfo.lp.devmob.smartspace.API.DataNetwork
+import iutinfo.lp.devmob.smartspace.API.GetDataService
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel : ViewModel() {
@@ -14,13 +14,12 @@ class MainActivityViewModel : ViewModel() {
     fun getData() {
         viewModelScope.launch(){
             try {
-                myResponse.value = DataNetwork.retrofit.getData()
+                myResponse.value = GetDataService.retrofit.getData()
                 error = false
                 errorTime = 0
             } catch (e: Exception) {
                 errorTime++
                 error = true
-
             }
 
         }
