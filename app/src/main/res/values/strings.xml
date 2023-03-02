@@ -15,4 +15,6 @@
     <string name="active_nfc">%1$s</string>
     <string name="ExplicationAuth">Placer votre carte ilzy au dos de votre téléphone</string>
     <string name="RetourAcceuilButton">Retour à l\'acceuil</string>
+    <string name="unknowUser">Utilisateur inconnu</string>
+    <string name="errorServer">Problème de connexion au server veuillez réessayer</string>
 </resources>

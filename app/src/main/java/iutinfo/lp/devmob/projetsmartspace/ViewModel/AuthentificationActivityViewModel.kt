@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class AuthentificationActivityViewModel: ViewModel() {
     private val myResponse: MutableLiveData<UserInfo?> = MutableLiveData()
     val myResponseList: MutableLiveData<List<IDUsers?>> = MutableLiveData()
+    var error : Boolean = false
     fun postData(userId: String) {
         viewModelScope.launch {
             try {
@@ -20,16 +21,19 @@ class AuthentificationActivityViewModel: ViewModel() {
                 //myResponse.value = PostDataService.retrofit.testLogin(userId)
             }
             catch (e: Exception) {
+                error = true
             }
             }
         }
 
     fun getIDUsers() {
+
         viewModelScope.launch {
             try {
                 myResponseList.value = GetDataService.retrofit.getAllID()
             }
             catch (e: Exception) {
+                error = true
             }
             }
         }

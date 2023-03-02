@@ -65,6 +65,13 @@ class AuthentificationActivity : AppCompatActivity() {
             viewModel.getIDUsers()
             //postID(idHex, viewModel)
             var bool = true
+            if(viewModel.error){
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title).text = resources.getString(R.string.errorServer)
+                dialog.findViewById<TextView>(R.id.text_nfc).visibility = View.GONE
+                dialog.findViewById<TextView>(R.id.active_nfc).visibility = View.GONE
+
+            }
             viewModel.myResponseList.observe(this){
                 if(it != null){
                     for (i in it){
@@ -73,24 +80,22 @@ class AuthentificationActivity : AppCompatActivity() {
                         if(i.identifiant == idHex){
                             val intentActivity = Intent(this, ProblemeActivity::class.java)
                             startActivity(intentActivity)
-
                         } else {
                             bool = false
                         }
                     }
                     if(!bool){
                         val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-                        dialog.findViewById<TextView>(R.id.title).text = "Utilisateur inconnu"
+                        dialog.findViewById<TextView>(R.id.title).text = resources.getString(R.string.unknowUser)
                         dialog.findViewById<TextView>(R.id.text_nfc).visibility = View.GONE
                         dialog.findViewById<TextView>(R.id.active_nfc).visibility = View.GONE
+                        dialog.setOnDismissListener(){
+                            val intentActivity = Intent(this, MainActivity::class.java)
+                            startActivity(intentActivity)
+                            dialog.cancel()
+                        }
                         bool = true
                     }
-                }
-                else{
-                    val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-                    dialog.findViewById<TextView>(R.id.title).text = "Problème de connexion serveur"
-                    dialog.findViewById<TextView>(R.id.text_nfc).visibility = View.GONE
-                    dialog.findViewById<TextView>(R.id.active_nfc).visibility = View.GONE
                 }
             }
             }
