@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:background="@color/black_background">
 
-    <iutinfo.lp.devmob.smartspace.Composants.HeaderView
+    <iutinfo.lp.devmob.projetsmartspace.Composants.HeaderView
         android:id="@+id/headerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <iutinfo.lp.devmob.smartspace.Composants.TemperatureView
+    <iutinfo.lp.devmob.projetsmartspace.Composants.TemperatureView
         android:id="@+id/temperatureAmbiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoSalleTech" />
 
-    <iutinfo.lp.devmob.smartspace.Composants.LightView
+    <iutinfo.lp.devmob.projetsmartspace.Composants.LightView
         android:id="@+id/etatLumiere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

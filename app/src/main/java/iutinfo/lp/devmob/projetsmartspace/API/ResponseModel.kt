@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace.API
+package iutinfo.lp.devmob.projetsmartspace.API
 
 data class ResponseModel(
     val message : String

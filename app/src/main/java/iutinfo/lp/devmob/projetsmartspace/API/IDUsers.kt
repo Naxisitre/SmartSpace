@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace.API
+package iutinfo.lp.devmob.projetsmartspace.API
 
 data class IDUsers(
     var identifiant: String

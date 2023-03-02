@@ -1,12 +1,12 @@
-package iutinfo.lp.devmob.smartspace.ViewModel
+package iutinfo.lp.devmob.projetsmartspace.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import iutinfo.lp.devmob.smartspace.API.GetDataService
-import iutinfo.lp.devmob.smartspace.API.IDUsers
-import iutinfo.lp.devmob.smartspace.API.UserInfo
+import iutinfo.lp.devmob.projetsmartspace.API.GetDataService
+import iutinfo.lp.devmob.projetsmartspace.API.IDUsers
+import iutinfo.lp.devmob.projetsmartspace.API.UserInfo
 import kotlinx.coroutines.launch
 
 class AuthentificationActivityViewModel: ViewModel() {

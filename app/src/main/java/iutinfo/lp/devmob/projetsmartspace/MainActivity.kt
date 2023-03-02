@@ -1,8 +1,7 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.projetsmartspace
 
 
 import android.app.AlertDialog
-import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.os.*
@@ -11,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View.GONE
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import iutinfo.lp.devmob.smartspace.Composants.LightView
-import iutinfo.lp.devmob.smartspace.Composants.TemperatureView
-import iutinfo.lp.devmob.smartspace.ViewModel.MainActivityViewModel
+import iutinfo.lp.devmob.projetsmartspace.Composants.LightView
+import iutinfo.lp.devmob.projetsmartspace.Composants.TemperatureView
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 

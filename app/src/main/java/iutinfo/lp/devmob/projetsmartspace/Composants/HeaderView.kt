@@ -1,9 +1,9 @@
-package iutinfo.lp.devmob.smartspace.Composants
+package iutinfo.lp.devmob.projetsmartspace.Composants
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
-import iutinfo.lp.devmob.smartspace.R
+import iutinfo.lp.devmob.projetsmartspace.R
 
 class HeaderView(context: Context, attrs : AttributeSet?) : FrameLayout(context, attrs) {
     init {

@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace.API
+package iutinfo.lp.devmob.projetsmartspace.API
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.projetsmartspace
 
 import android.app.AlertDialog
 import android.app.PendingIntent
@@ -12,7 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import iutinfo.lp.devmob.smartspace.ViewModel.AuthentificationActivityViewModel
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.AuthentificationActivityViewModel
 import kotlin.experimental.and
 
 class AuthentificationActivity : AppCompatActivity() {

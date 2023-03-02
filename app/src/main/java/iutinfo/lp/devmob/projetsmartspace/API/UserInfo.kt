@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace.API
+package iutinfo.lp.devmob.projetsmartspace.API
 
 import com.google.gson.annotations.SerializedName
 
