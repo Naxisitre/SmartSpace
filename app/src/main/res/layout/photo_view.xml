@@ -119,6 +119,7 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center"
+        android:onClick="EnvoieProbleme"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
