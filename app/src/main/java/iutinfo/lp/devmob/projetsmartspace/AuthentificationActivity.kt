@@ -89,7 +89,7 @@ class AuthentificationActivity : AppCompatActivity() {
                         dialog.findViewById<TextView>(R.id.title).text = resources.getString(R.string.unknowUser)
                         dialog.findViewById<TextView>(R.id.text_nfc).visibility = View.GONE
                         dialog.findViewById<TextView>(R.id.active_nfc).visibility = View.GONE
-                        dialog.setOnDismissListener(){
+                        dialog.setOnDismissListener{
                             val intentActivity = Intent(this, MainActivity::class.java)
                             startActivity(intentActivity)
                             dialog.cancel()
