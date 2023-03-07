@@ -19,18 +19,24 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
+import iutinfo.lp.devmob.projetsmartspace.API.ProblemInfo
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.MainActivityViewModel
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
+import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
 
 class ProblemeActivity() : AppCompatActivity() {
     var uri : Uri? = null
-    var userID: String? = null
+    var userID: String? = "abc"
+    var photoFile: File = File("")
+    lateinit var multipartImage: MultipartBody.Part
     val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) { boolean: Boolean? ->
         Log.i("Picture", "here is uri" + uri)
         if(boolean!!) {
             val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri)
+            Log.i("Image", "here is bitmap" + bitmap)
             findViewById<ImageView>(R.id.retourPhoto).setImageBitmap(bitmap)
             findViewById<ImageView>(R.id.retourPhoto).visibility = VISIBLE
             findViewById<TextView>(R.id.text_photo).visibility = GONE
@@ -47,7 +53,7 @@ class ProblemeActivity() : AppCompatActivity() {
     }
 
     fun activateCamera(view: View) {
-        val photoFile = File.createTempFile(
+        photoFile = File.createTempFile(
             "IMG_",
             ".jpg",
             getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -62,8 +68,6 @@ class ProblemeActivity() : AppCompatActivity() {
     }
 
     fun EnvoieProbleme(view: View) {
-
-
         val viewModel = ViewModelProvider(this).get(ProblemActivityViewModel::class.java)
         val textDesc = findViewById<EditText>(R.id.desc_prob_text).text.toString()
         try {
@@ -75,9 +79,15 @@ class ProblemeActivity() : AppCompatActivity() {
                 dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
                 dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
                 //viewModel.postProblem(uri, userID, textDesc)
-                viewModel.myResponse.observe(this) {
-                    Log.i("Response", it.toString())
-                }
+                val requestFile: RequestBody = RequestBody.create(
+                    MediaType.parse("image/jpg"),
+                    File(uri!!.path!!)
+                )
+                multipartImage = MultipartBody.Part.createFormData("image", File(uri!!.path!!).name, requestFile)
+                Log.i("Multipart", multipartImage.toString())
+                Log.i("userID", userID.toString())
+                Log.i("desc", textDesc)
+                viewModel.postProblem(multipartImage, RequestBody.create(MediaType.parse("text/plain"), userID!!), RequestBody.create(MediaType.parse("text/plain"), textDesc))
                 dialog.setOnDismissListener{
                     val intentProbleme = Intent(this, MainActivity::class.java)
                     startActivity(intentProbleme)

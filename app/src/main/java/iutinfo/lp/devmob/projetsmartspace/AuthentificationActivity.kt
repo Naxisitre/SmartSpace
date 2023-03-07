@@ -80,6 +80,7 @@ class AuthentificationActivity : AppCompatActivity() {
                         Log.i("IDGET", "ID USER: ${i!!.identifiant}")
                         if(i.identifiant == idHex){
                             val intentActivity = Intent(this, ProblemeActivity::class.java)
+                            intentActivity.putExtra("userID", idHex)
                             startActivity(intentActivity)
                         } else {
                             bool = false
@@ -126,7 +127,6 @@ class AuthentificationActivity : AppCompatActivity() {
 
     fun retourAcceuil(view: View) {
         val intentAcceuil = Intent(this, MainActivity::class.java)
-        intentAcceuil.putExtra("userID", idHex)
         startActivity(intentAcceuil)
     }
 }
