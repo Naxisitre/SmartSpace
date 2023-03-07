@@ -19,7 +19,7 @@ class AuthentificationActivity : AppCompatActivity() {
 
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
-
+    var idHex : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentification_view)
@@ -60,7 +60,8 @@ class AuthentificationActivity : AppCompatActivity() {
         if (NfcAdapter.ACTION_TAG_DISCOVERED == action || NfcAdapter.ACTION_TECH_DISCOVERED == action || NfcAdapter.ACTION_NDEF_DISCOVERED == action) {
             val tag: Tag = (intent.getParcelableExtra<Parcelable>(NfcAdapter.EXTRA_TAG) as Tag?)!!
             val id = tag.id
-            val idHex = toHex(id)
+            idHex = toHex(id)
+
             Log.i("IDSEND", "Tag ID: $idHex")
             viewModel.getIDUsers()
             //postID(idHex, viewModel)
@@ -125,6 +126,7 @@ class AuthentificationActivity : AppCompatActivity() {
 
     fun retourAcceuil(view: View) {
         val intentAcceuil = Intent(this, MainActivity::class.java)
+        intentAcceuil.putExtra("userID", idHex)
         startActivity(intentAcceuil)
     }
 }

@@ -18,10 +18,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.lifecycle.ViewModelProvider
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.MainActivityViewModel
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
+import okhttp3.RequestBody
 import java.io.File
 
 class ProblemeActivity() : AppCompatActivity() {
     var uri : Uri? = null
+    var userID: String? = null
     val takePicture = registerForActivityResult(ActivityResultContracts.TakePicture()) { boolean: Boolean? ->
         Log.i("Picture", "here is uri" + uri)
         if(boolean!!) {
@@ -37,6 +42,8 @@ class ProblemeActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.photo_view)
         supportActionBar?.hide()
+        val intent = getIntent()
+        userID = intent.getStringExtra("userID")
     }
 
     fun activateCamera(view: View) {
@@ -55,36 +62,47 @@ class ProblemeActivity() : AppCompatActivity() {
     }
 
     fun EnvoieProbleme(view: View) {
+
+
+        val viewModel = ViewModelProvider(this).get(ProblemActivityViewModel::class.java)
         val textDesc = findViewById<EditText>(R.id.desc_prob_text).text.toString()
-        if(uri != null && textDesc != "") {
-            Log.i("Uri", uri.toString())
-            Log.i("Text", textDesc)
-            val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-            dialog.findViewById<TextView>(R.id.title)?.text= "Problème envoyé"
-            dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
-            dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
-            dialog.setOnDismissListener{
-                val intentProbleme = Intent(this, MainActivity::class.java)
-                startActivity(intentProbleme)
+        try {
+            if(uri != null && textDesc != "") {
+                Log.i("Uri", uri.toString())
+                Log.i("Text", textDesc)
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title)?.text= "Problème envoyé"
+                dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
+                dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+                //viewModel.postProblem(uri, userID, textDesc)
+                viewModel.myResponse.observe(this) {
+                    Log.i("Response", it.toString())
+                }
+                dialog.setOnDismissListener{
+                    val intentProbleme = Intent(this, MainActivity::class.java)
+                    startActivity(intentProbleme)
+                }
             }
-        }
-        else if(uri == null && textDesc != ""){
-            val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-            dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo"
-            dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
-            dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
-        }
-        else if(uri != null && textDesc == ""){
-            val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-            dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez décrire le problème"
-            dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
-            dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
-        }
-        else{
-            val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-            dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo et décrire le problème"
-            dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
-            dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+            else if(uri == null && textDesc != ""){
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo"
+                dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
+                dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+            }
+            else if(uri != null && textDesc == ""){
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez décrire le problème"
+                dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
+                dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+            }
+            else{
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo et décrire le problème"
+                dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
+                dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+            }
+        } catch (e: Exception) {
+            Log.i("Error", e.toString())
         }
     }
 }

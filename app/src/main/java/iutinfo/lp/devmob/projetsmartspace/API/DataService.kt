@@ -1,9 +1,7 @@
 package iutinfo.lp.devmob.projetsmartspace.API
 
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import okhttp3.RequestBody
+import retrofit2.http.*
 
 interface DataService {
     @GET("mesures/last")
@@ -15,6 +13,10 @@ interface DataService {
     @Headers("Content-Type: application/json")
     @POST("user/add")
     suspend fun addUser(@Body userId: String): UserInfo
+
+    @Multipart
+    @POST("report/upload")
+    suspend fun uploadReport(@Part("image")  picture: RequestBody, @Part("Identifiant") Identifiant: String?, @Part("Rapport") Rapport: String): ProblemInfo?
 
     @Headers("Content-Type: application/json")
     @POST("user/login")
