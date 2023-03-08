@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import java.io.File
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemeActivityViewModel
 
 class ProblemeActivity() : AppCompatActivity() {
     var uri : Uri? = null

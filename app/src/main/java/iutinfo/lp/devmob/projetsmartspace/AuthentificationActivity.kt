@@ -107,9 +107,7 @@ class AuthentificationActivity : AppCompatActivity() {
         resolveIntent(intent)
     }
 
-    private fun postID(idUser: String, viewModel: AuthentificationActivityViewModel){
-        viewModel.postData(idUser)
-    }
+
     private fun toHex(bytes: ByteArray): String {
         val sb = StringBuilder()
         for (i in bytes.indices.reversed()) {
