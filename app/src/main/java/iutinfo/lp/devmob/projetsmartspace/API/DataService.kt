@@ -2,6 +2,7 @@ package iutinfo.lp.devmob.projetsmartspace.API
 
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 
 interface DataService {
@@ -17,7 +18,7 @@ interface DataService {
 
     @Multipart
     @POST("report/upload")
-    suspend fun postProblem(@Part image: MultipartBody.Part, @Part("Identifiant") Identifiant: RequestBody, @Part("Rapport") Rapport: RequestBody): ProblemInfo?
+    fun postProblem(@Part image: MultipartBody.Part, @Part("Identifiant") Identifiant: RequestBody, @Part("Rapport") Rapport: RequestBody): Call<ProblemInfo?>?
 
     @Headers("Content-Type: application/json")
     @POST("user/login")

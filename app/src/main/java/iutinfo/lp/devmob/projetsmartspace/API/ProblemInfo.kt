@@ -1,11 +1,14 @@
 package iutinfo.lp.devmob.projetsmartspace.API
 
+import android.graphics.Bitmap
 import android.net.Uri
-import okhttp3.MultipartBody
+import java.io.File
 
 data class ProblemInfo(
-    val image: MultipartBody.Part? = null,
-    val identifiant: String? = null,
-    val rapport: String? = null,
+    var userId: String ?= null,
+    var uri: Uri? = null,
+    var textDesc: String? = null,
+    var bitmap: Bitmap? = null,
+    var photoFile: File? = null
 
 )
