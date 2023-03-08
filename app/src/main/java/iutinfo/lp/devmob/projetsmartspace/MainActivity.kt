@@ -1,7 +1,6 @@
 package iutinfo.lp.devmob.projetsmartspace
 
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -16,13 +15,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import iutinfo.lp.devmob.projetsmartspace.API.GetDataService
 import iutinfo.lp.devmob.projetsmartspace.API.Notification
 import iutinfo.lp.devmob.projetsmartspace.Composants.LightView
 import iutinfo.lp.devmob.projetsmartspace.Composants.TemperatureView
-import iutinfo.lp.devmob.projetsmartspace.ViewModel.AuthentificationActivityViewModel
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.MainActivityViewModel
-import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemeActivityViewModel
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -123,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
             // Post
             val notification = Notification(token.toString(),"test")
-            val viewModel = ViewModelProvider(this).get(ProblemeActivityViewModel::class.java)
+            val viewModel = ViewModelProvider(this).get(ProblemActivityViewModel::class.java)
             viewModel.postNotif(token, "test")
 
         })

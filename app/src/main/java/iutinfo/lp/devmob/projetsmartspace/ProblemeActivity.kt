@@ -19,7 +19,6 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
 import java.io.File
-import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemeActivityViewModel
 
 class ProblemeActivity() : AppCompatActivity() {
 

@@ -3,9 +3,11 @@ package iutinfo.lp.devmob.projetsmartspace.ViewModel
 import android.graphics.Bitmap
 import android.net.Uri
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import iutinfo.lp.devmob.projetsmartspace.API.GetDataService
+import iutinfo.lp.devmob.projetsmartspace.API.Notification
 import iutinfo.lp.devmob.projetsmartspace.API.ProblemInfo
 import kotlinx.coroutines.launch
 import okhttp3.MediaType
@@ -25,6 +27,10 @@ class ProblemActivityViewModel: ViewModel() {
     lateinit var report: ProblemInfo
     var call: Call<ProblemInfo?>? = null
     var response: Response<ProblemInfo?>? = null
+
+    val myResponse: MutableLiveData<Notification> = MutableLiveData()
+    var error : Boolean = false
+    var errorTime : Int = 0
 
     fun postProblem(): Boolean {
         var bool: Boolean = true
@@ -65,4 +71,19 @@ class ProblemActivityViewModel: ViewModel() {
         }
         return bool
     }
+
+    fun postNotif(token : String, message : String) {
+        viewModelScope.launch() {
+            try {
+                val notification = Notification(token, message)
+                myResponse.value = GetDataService.retrofit.sendNotification(notification)
+                error = false
+                errorTime = 0
+            } catch (e: Exception) {
+                errorTime++
+                error = true
+            }
+        }
+    }
+
 }
