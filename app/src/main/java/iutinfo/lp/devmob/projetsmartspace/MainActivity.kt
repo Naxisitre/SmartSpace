@@ -1,18 +1,28 @@
 package iutinfo.lp.devmob.projetsmartspace
 
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.os.*
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View.GONE
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
+import iutinfo.lp.devmob.projetsmartspace.API.GetDataService
+import iutinfo.lp.devmob.projetsmartspace.API.Notification
 import iutinfo.lp.devmob.projetsmartspace.Composants.LightView
 import iutinfo.lp.devmob.projetsmartspace.Composants.TemperatureView
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.AuthentificationActivityViewModel
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.MainActivityViewModel
+import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemeActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -100,6 +110,22 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
 
+            // Get new FCM registration token
+            val token = task.result
+
+            Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+
+            // Post
+            val notification = Notification(token.toString(),"test")
+            val viewModel = ViewModelProvider(this).get(ProblemeActivityViewModel::class.java)
+            viewModel.postNotif(token, "test")
+
+        })
+    }
 }

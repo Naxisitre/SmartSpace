@@ -23,5 +23,7 @@ interface DataService {
     @Headers("Content-Type: application/json")
     @POST("user/login")
     suspend fun testLogin(@Body userId: String): UserInfo
-
+    @Headers("Content-Type: application/json")
+    @POST("report/firebase/notification")
+    suspend fun sendNotification(@Body notification: Notification): Notification
 }
