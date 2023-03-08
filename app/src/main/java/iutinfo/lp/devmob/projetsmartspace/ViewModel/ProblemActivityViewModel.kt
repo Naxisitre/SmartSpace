@@ -2,44 +2,65 @@ package iutinfo.lp.devmob.projetsmartspace.ViewModel
 
 import android.graphics.Bitmap
 import android.net.Uri
-import android.util.Base64
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import iutinfo.lp.devmob.projetsmartspace.API.GetDataService
 import iutinfo.lp.devmob.projetsmartspace.API.ProblemInfo
 import kotlinx.coroutines.launch
 import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
+import java.io.File
 
 class ProblemActivityViewModel: ViewModel() {
-    var Identifiant: String ? = null
-    var Rapport: String ? = null
-    var image: Bitmap? = null
+    var userId: String ?= null
     var uri: Uri? = null
-
+    var textDesc: String? = null
+    var bitmap: Bitmap? = null
+    var photoFile: File? = null
     lateinit var report: ProblemInfo
-    var call: ProblemInfo? = null
+    var call: Call<ProblemInfo?>? = null
     var response: Response<ProblemInfo?>? = null
-    val myResponse: MutableLiveData<ProblemInfo> = MutableLiveData()
 
-    fun postProblem():Boolean {
+    fun postProblem(): Boolean {
         var bool: Boolean = true
-        if (Identifiant == null || Rapport == null || image == null || uri == null) {
+        if(userId == null ||uri == null ||textDesc == null || bitmap == null || photoFile == null ) {
             bool = false
         }
-        report = ProblemInfo(image!!, Identifiant!!, Rapport!!, uri!!)
+        report = ProblemInfo(userId!!, uri!!, textDesc!!, bitmap!!, photoFile!!)
         viewModelScope.launch() {
             try {
-                val baos = ByteArrayOutputStream()
-                report.image.compress(Bitmap.CompressFormat.PNG, 100, baos)
-                val b = baos.toByteArray()
-                val imageEncoded = Base64.encodeToString(b, Base64.DEFAULT)
-                val requestBody: RequestBody = RequestBody.create(MediaType.parse("multipart/form-data; charset=utf-8"), imageEncoded)
+                val requestFile: RequestBody = RequestBody.create(
+                    MediaType.parse("image/jpg"),
+                    photoFile!!
+                )
+                Log.i("Request", requestFile.toString())
+                call = GetDataService.retrofit.postProblem(
+                    MultipartBody.Part.createFormData("image", photoFile!!.name, requestFile),
+                    RequestBody.create(MediaType.parse("text/plain"), userId!!),
+                    RequestBody.create(MediaType.parse("text/plain"), textDesc!!)
+                )
+                call!!.enqueue(object : Callback<ProblemInfo?> {
+                    override fun onResponse(
+                        call: Call<ProblemInfo?>,
+                        response: Response<ProblemInfo?>
+                    ) {
+                        Log.i("Response", response.body().toString())
+                        Log.i("Response", response.code().toString())
+                    }
 
-                //call = GetDataService.retrofit.uploadReport(requestBody, identifiant, rapport)
-            } catch (e: Exception) {
+                    override fun onFailure(call: Call<ProblemInfo?>, t: Throwable) {
+                        Log.i("Response", call.toString())
+                        t.printStackTrace()
+                    }
+                })
+        }
+            catch (e: Exception) {
+                bool = false
             }
         }
         return bool

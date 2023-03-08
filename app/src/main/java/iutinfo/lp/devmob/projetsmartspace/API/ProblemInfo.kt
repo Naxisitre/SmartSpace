@@ -2,11 +2,13 @@ package iutinfo.lp.devmob.projetsmartspace.API
 
 import android.graphics.Bitmap
 import android.net.Uri
-import com.google.gson.annotations.SerializedName
+import java.io.File
 
 data class ProblemInfo(
-    @SerializedName("image") val image: Bitmap,
-    @SerializedName("Identifiant") val identifiant: String,
-    @SerializedName("Rapport") val rapport: String,
-    val uri: Uri
+    var userId: String ?= null,
+    var uri: Uri? = null,
+    var textDesc: String? = null,
+    var bitmap: Bitmap? = null,
+    var photoFile: File? = null
+
 )
