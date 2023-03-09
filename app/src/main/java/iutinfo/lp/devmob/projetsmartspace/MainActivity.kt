@@ -107,22 +107,5 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
-
-            // Post
-            val notification = Notification(token.toString(),"test")
-            val viewModel = ViewModelProvider(this).get(ProblemActivityViewModel::class.java)
-            viewModel.postNotif(token, "test")
-
-        })
     }
 }

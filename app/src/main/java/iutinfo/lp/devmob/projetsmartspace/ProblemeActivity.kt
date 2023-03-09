@@ -1,6 +1,7 @@
 package iutinfo.lp.devmob.projetsmartspace
 
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
@@ -12,11 +13,15 @@ import android.view.View.VISIBLE
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
+import iutinfo.lp.devmob.projetsmartspace.API.Notification
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
 import java.io.File
 
@@ -80,6 +85,23 @@ class ProblemeActivity() : AppCompatActivity() {
                     val intentProbleme = Intent(this, MainActivity::class.java)
                     startActivity(intentProbleme)
                 }
+
+                FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Log.w(ContentValues.TAG, "Fetching FCM registration token failed", task.exception)
+                        return@OnCompleteListener
+                    }
+
+                    // Get new FCM registration token
+                    val token = task.result
+
+                    //Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+
+                    // Post
+                    val viewModel = ViewModelProvider(this).get(ProblemActivityViewModel::class.java)
+                    viewModel.postNotif(token, "test")
+
+                })
             }
             else if(viewModel.uri == null && viewModel.textDesc != ""){
                 val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
