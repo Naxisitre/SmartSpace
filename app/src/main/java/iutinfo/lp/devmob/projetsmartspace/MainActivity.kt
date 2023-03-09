@@ -24,7 +24,7 @@ import iutinfo.lp.devmob.projetsmartspace.ViewModel.ProblemActivityViewModel
 class MainActivity : AppCompatActivity() {
 
     private var nfcAdapter: NfcAdapter? = null
-
+    var intentActitity: Intent? = null
     private var handler = Handler(Looper.getMainLooper())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,7 +99,8 @@ class MainActivity : AppCompatActivity() {
             dialog.findViewById<TextView>(R.id.text_nfc).text = resources.getString(R.string.info_comp_nfc, "Identifiez vous en cliquant sur le bouton en dessous pour signaler un problème")
             dialog.findViewById<TextView>(R.id.active_nfc).text = resources.getString(R.string.active_nfc, "Vous identifiez")
             dialog.findViewById<TextView>(R.id.active_nfc).setOnClickListener {
-                val intentActitity = Intent(this, AuthentificationActivity::class.java)
+                intentActitity = Intent(this, AuthentificationActivity::class.java)
+                intentActitity!!.putExtra("consulter", "false")
                 startActivity(intentActitity)
                 dialog.dismiss()
             }
@@ -107,5 +108,11 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    fun onConsulterClicked(view: View) {
+        intentActitity = Intent(this, AuthentificationActivity::class.java)
+        intentActitity!!.putExtra("consulter", "true")
+        startActivity(intentActitity)
     }
 }

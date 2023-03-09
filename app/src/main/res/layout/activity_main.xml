@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_background"
     tools:context=".MainActivity"
-    android:background="@color/black_background">
+    tools:layout_editor_absoluteX="-1dp"
+    tools:layout_editor_absoluteY="33dp">
+
+    <TextView
+        android:id="@+id/button_prob"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:onClick="onProblemClicked"
+        android:text="Signaler un problème"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_consulter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <iutinfo.lp.devmob.projetsmartspace.Composants.HeaderView
         android:id="@+id/headerView"
@@ -32,18 +47,17 @@
         app:layout_constraintTop_toBottomOf="@+id/temperatureAmbiante" />
 
     <TextView
-        android:id="@+id/button_prob"
+        android:id="@+id/button_consulter"
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Signaler un problème"
-        android:onClick="onProblemClicked"
         android:layout_margin="60dp"
+        android:onClick="onConsulterClicked"
+        android:text="Consulter les problèmes"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/infoSalleTech"

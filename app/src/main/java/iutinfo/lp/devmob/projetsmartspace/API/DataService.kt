@@ -18,7 +18,7 @@ interface DataService {
 
     @Multipart
     @POST("report/upload")
-    fun postProblem(@Part image: MultipartBody.Part, @Part("Identifiant") Identifiant: RequestBody, @Part("Rapport") Rapport: RequestBody): Call<ProblemInfo?>?
+    fun postProblem(@Part image: MultipartBody.Part, @Part("Identifiant") Identifiant: RequestBody, @Part("Rapport") Rapport: RequestBody, @Part("Titre") Titre: RequestBody, @Part("registrationToken") registrationToken: RequestBody): Call<ProblemInfo?>?
 
     @Headers("Content-Type: application/json")
     @POST("user/login")

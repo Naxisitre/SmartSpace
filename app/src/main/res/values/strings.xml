@@ -20,5 +20,6 @@
     <string name="msg_token_fmt">Token!</string>
     <string name="channel_name">channel_name</string>
     <string name="channel_description">channel_description</string>
-
+    <string name="title_hint">Donnez un titre</string>
+    <string name="title_hint_text">Le cable HDMI ne fonctionne plus</string>
 </resources>

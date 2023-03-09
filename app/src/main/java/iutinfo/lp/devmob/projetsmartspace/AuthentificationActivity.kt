@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import iutinfo.lp.devmob.projetsmartspace.ViewModel.AuthentificationActivityViewModel
+import org.w3c.dom.Text
 import kotlin.experimental.and
 
 class AuthentificationActivity : AppCompatActivity() {
@@ -20,13 +21,16 @@ class AuthentificationActivity : AppCompatActivity() {
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
     var idHex : String? = null
+    var consulter: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentification_view)
         supportActionBar?.hide()
+        consulter = intent.getStringExtra("consulter")
 
-
-
+        if (consulter == "true"){
+            findViewById<TextView>(R.id.buttonConsulter).visibility = View.VISIBLE
+        }
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)
 
         pendingIntent = PendingIntent.getActivity(
@@ -95,6 +99,7 @@ class AuthentificationActivity : AppCompatActivity() {
                             val intentActivity = Intent(this, MainActivity::class.java)
                             startActivity(intentActivity)
                             dialog.cancel()
+                            finish()
                         }
                         bool = true
                     }
@@ -126,5 +131,9 @@ class AuthentificationActivity : AppCompatActivity() {
     fun retourAcceuil(view: View) {
         val intentAcceuil = Intent(this, MainActivity::class.java)
         startActivity(intentAcceuil)
+    }
+
+    fun OnConsulterClicked(view: View) {
+
     }
 }

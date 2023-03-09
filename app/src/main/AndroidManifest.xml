@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ProblemViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".AuthentificationActivity"
             android:exported="false" />
         <activity
@@ -36,6 +39,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -45,12 +49,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-        <service android:name=".FirebaseMessagingReceiver" android:exported="false">
+
+        <service
+            android:name=".FirebaseMessagingReceiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

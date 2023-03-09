@@ -6,37 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".AuthentificationActivity"
     android:background="@color/black_background">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+
+    <TextView
+        android:id="@+id/buttonConsulter"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="OnConsulterClicked"
+        android:text="Consulter les problèmes"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAcceuil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         style="@style/popup_style"
         android:layout_width="315dp"
         android:layout_height="528dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/chakrapetch_medium"
         android:gravity="center"
         android:text="@string/ExplicationAuth"
         android:textColor="@color/black"
+
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAcceuil"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConsulter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/buttonAcceuil"
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:onClick="retourAcceuil"
         android:text="@string/RetourAcceuilButton"
         android:textSize="25sp"
-        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
-</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

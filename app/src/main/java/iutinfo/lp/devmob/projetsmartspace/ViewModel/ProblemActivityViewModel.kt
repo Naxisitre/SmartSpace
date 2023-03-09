@@ -24,6 +24,8 @@ class ProblemActivityViewModel: ViewModel() {
     var textDesc: String? = null
     var bitmap: Bitmap? = null
     var photoFile: File? = null
+    var titre: String? = null
+    var token: String? = null
     lateinit var report: ProblemInfo
     var call: Call<ProblemInfo?>? = null
     var response: Response<ProblemInfo?>? = null
@@ -34,10 +36,10 @@ class ProblemActivityViewModel: ViewModel() {
 
     fun postProblem(): Boolean {
         var bool: Boolean = true
-        if(userId == null ||uri == null ||textDesc == null || bitmap == null || photoFile == null ) {
+        if(userId == null ||uri == null ||textDesc == null || bitmap == null || photoFile == null || titre == null) {
             bool = false
         }
-        report = ProblemInfo(userId!!, uri!!, textDesc!!, bitmap!!, photoFile!!)
+        report = ProblemInfo(userId!!, uri!!, textDesc!!, bitmap!!, photoFile!!, titre!!)
         viewModelScope.launch() {
             try {
                 val requestFile: RequestBody = RequestBody.create(
@@ -48,7 +50,9 @@ class ProblemActivityViewModel: ViewModel() {
                 call = GetDataService.retrofit.postProblem(
                     MultipartBody.Part.createFormData("image", photoFile!!.name, requestFile),
                     RequestBody.create(MediaType.parse("text/plain"), userId!!),
-                    RequestBody.create(MediaType.parse("text/plain"), textDesc!!)
+                    RequestBody.create(MediaType.parse("text/plain"), textDesc!!),
+                    RequestBody.create(MediaType.parse("text/plain"), titre!!),
+                    RequestBody.create(MediaType.parse("text/plain"), token!!)
                 )
                 call!!.enqueue(object : Callback<ProblemInfo?> {
                     override fun onResponse(

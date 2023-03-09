@@ -63,9 +63,10 @@ class ProblemeActivity() : AppCompatActivity() {
 
     fun EnvoieProbleme(view: View) {
         viewModel.textDesc = findViewById<EditText>(R.id.desc_prob_text).text.toString()
+        viewModel.titre = findViewById<EditText>(R.id.desc_title_text).text.toString()
         //multipartImage = MultipartBody.Part.createFormData("image", File(uri!!.path!!).name, requestFile)
         try {
-            if(viewModel.uri != null &&viewModel.textDesc != "") {
+            if(viewModel.uri != null && viewModel.textDesc != "" && viewModel.titre != "") {
                 Log.i("Uri", viewModel.uri.toString())
                 Log.i("Text", viewModel.textDesc!!)
                 val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
@@ -83,38 +84,41 @@ class ProblemeActivity() : AppCompatActivity() {
                     val intentProbleme = Intent(this, MainActivity::class.java)
                     startActivity(intentProbleme)
                 }
-
                 FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
                         Log.w(ContentValues.TAG, "Fetching FCM registration token failed", task.exception)
                         return@OnCompleteListener
                     }
-
                     // Get new FCM registration token
-                    val token = task.result
-
+                    viewModel.token = task.result
                     //Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
 
                     // Post
-                    viewModel.postNotif(token, "test")
+                    //viewModel.postNotif(token, "test")
 
                 })
             }
-            else if(viewModel.uri == null && viewModel.textDesc != ""){
+            else if(viewModel.uri == null && viewModel.textDesc != "" && viewModel.titre != ""){
                 val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
                 dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo"
                 dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
                 dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
             }
-            else if(viewModel.uri != null && viewModel.textDesc == ""){
+            else if(viewModel.uri != null && viewModel.textDesc == "" && viewModel.titre != ""){
                 val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
                 dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez décrire le problème"
                 dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
                 dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
             }
+            else if(viewModel.uri != null && viewModel.textDesc != "" && viewModel.titre == ""){
+                val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
+                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez donner un titre au problème"
+                dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
+                dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
+            }
             else{
                 val dialog = AlertDialog.Builder(this).setView(R.layout.popupnfc_view).show()
-                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez prendre une photo et décrire le problème"
+                dialog.findViewById<TextView>(R.id.title)?.text= "Veuillez remplir tous les champs"
                 dialog.findViewById<TextView>(R.id.text_nfc)!!.visibility = GONE
                 dialog.findViewById<TextView>(R.id.active_nfc)!!.visibility = GONE
             }
