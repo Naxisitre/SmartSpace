@@ -20,7 +20,6 @@ class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(cont
             findViewById<TextView>(R.id.text_temp).text = "--°C"
             findViewById<ImageView>(R.id.attention).visibility = VISIBLE
             findViewById<TextView>(R.id.refresh_text).text = resources.getString(R.string.refresh_warning_text)
-
         }
         else {
             findViewById<TextView>(R.id.text_temp).text = "$temp°C"

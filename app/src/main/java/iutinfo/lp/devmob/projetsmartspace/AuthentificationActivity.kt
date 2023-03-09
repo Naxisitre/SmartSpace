@@ -134,6 +134,7 @@ class AuthentificationActivity : AppCompatActivity() {
     }
 
     fun OnConsulterClicked(view: View) {
-
+        val intentConsulter = Intent(this, ProblemViewActivity::class.java)
+        startActivity(intentConsulter)
     }
 }

@@ -3,6 +3,7 @@ package iutinfo.lp.devmob.projetsmartspace.API
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface DataService {
@@ -26,4 +27,7 @@ interface DataService {
     @Headers("Content-Type: application/json")
     @POST("report/firebase/notification")
     suspend fun sendNotification(@Body notification: Notification): Notification
+
+    @GET("report/all")
+    suspend fun getAllProblems(): Response<List<GetProblem>>
 }

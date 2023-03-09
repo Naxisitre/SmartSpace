@@ -42,6 +42,7 @@ class ProblemActivityViewModel: ViewModel() {
         report = ProblemInfo(userId!!, uri!!, textDesc!!, bitmap!!, photoFile!!, titre!!)
         viewModelScope.launch() {
             try {
+                Log.i("Test", "ça marche")
                 val requestFile: RequestBody = RequestBody.create(
                     MediaType.parse("image/jpg"),
                     photoFile!!
@@ -71,12 +72,14 @@ class ProblemActivityViewModel: ViewModel() {
         }
             catch (e: Exception) {
                 bool = false
+                Log.i("Response", "ça marche pas ")
+                Log.i("Response", response?.code().toString())
             }
         }
         return bool
     }
 
-    fun postNotif(token : String, message : String) {
+    /*fun postNotif(token : String, message : String) {
         viewModelScope.launch() {
             try {
                 val notification = Notification(token, message)
@@ -88,6 +91,6 @@ class ProblemActivityViewModel: ViewModel() {
                 error = true
             }
         }
-    }
+    }*/
 
 }

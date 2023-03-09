@@ -22,4 +22,7 @@
     <string name="channel_description">channel_description</string>
     <string name="title_hint">Donnez un titre</string>
     <string name="title_hint_text">Le cable HDMI ne fonctionne plus</string>
+    <string name="title_vue_prob">%1$s</string>
+    <string name="info_report">Signalé par : %1$s</string>
+    <string name="signal_at">le %1$s</string>
 </resources>
