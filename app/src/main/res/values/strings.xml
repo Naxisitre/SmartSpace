@@ -25,4 +25,6 @@
     <string name="title_vue_prob">%1$s</string>
     <string name="info_report">Signalé par : %1$s</string>
     <string name="signal_at">le %1$s</string>
+    <string name="traitementEnCours">Problème en cours de traitement :</string>
+    <string name="problemesATraiter">Problèmes à traiter :</string>
 </resources>
