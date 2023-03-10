@@ -1,6 +1,7 @@
 package iutinfo.lp.devmob.projetsmartspace.API
 
 data class GetProblem(
+    var id: String? = null,
     var Identifiant: String? = null,
     var prenom: String? = null,
     var nom: String? = null,
