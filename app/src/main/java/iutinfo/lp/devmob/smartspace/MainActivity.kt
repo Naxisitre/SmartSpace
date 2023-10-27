@@ -7,6 +7,9 @@ import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import iutinfo.lp.devmob.projetsmartspace.Composants.LightView
+import iutinfo.lp.devmob.projetsmartspace.Composants.TemperatureView
+import iutinfo.lp.devmob.projetsmartspace.R
 
 class MainActivity : AppCompatActivity() {
 

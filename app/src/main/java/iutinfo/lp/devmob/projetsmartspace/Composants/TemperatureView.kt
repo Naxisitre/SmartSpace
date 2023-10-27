@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.projetsmartspace.Composants
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import iutinfo.lp.devmob.projetsmartspace.R
 
 
 class TemperatureView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {

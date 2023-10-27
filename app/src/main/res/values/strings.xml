@@ -4,5 +4,28 @@
     <string name="hello_user">Bonjour, %1$s</string>
     <string name="light_state">Lumière %1$s</string>
     <string name="refresh_text">Dernière actualisation à %1$s</string>
-    <string name="refresh_warning_text">Erreur de Connexion</string>
+    <string name="refresh_warning_text">Dernière actualisation il y a plus de 15 min</string>
+    <string name="nfc_text_state">Le NFC est %1$s</string>
+    <string name="info_comp_nfc">%1$s</string>
+    <string name="title_prob">Décrivez nous votre problème</string>
+    <string name="send_prob">Signaler le problème</string>
+    <string name="photo_text">Cliquez pour ajouter une photo du problème</string>
+    <string name="desc_prob">Décrivez-nous votre problème</string>
+    <string name="desc_hint">Entrez votre description ici</string>
+    <string name="active_nfc">%1$s</string>
+    <string name="ExplicationAuth">Placer votre carte ilzy au dos de votre téléphone</string>
+    <string name="RetourAcceuilButton">Retour à l\'acceuil</string>
+    <string name="unknowUser">Utilisateur inconnu</string>
+    <string name="errorServer">Problème de connexion au server veuillez réessayer</string>
+    <string name="msg_token_fmt">Token!</string>
+    <string name="channel_name">channel_name</string>
+    <string name="channel_description">channel_description</string>
+    <string name="title_hint">Donnez un titre</string>
+    <string name="title_hint_text">Le cable HDMI ne fonctionne plus</string>
+    <string name="title_vue_prob">%1$s</string>
+    <string name="info_report">Signalé par : %1$s</string>
+    <string name="signal_at">le %1$s</string>
+    <string name="traitementEnCours">Problème en cours de traitement :</string>
+    <string name="problemesATraiter">Problèmes à traiter :</string>
+>>>>>>> develop
 </resources>
