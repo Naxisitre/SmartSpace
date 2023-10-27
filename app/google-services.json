@@ -1,10 +1,40 @@
 {
   "project_info": {
     "project_number": "38108877031",
+    "firebase_url": "https://smartspace-dd08e-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "smartspace-dd08e",
     "storage_bucket": "smartspace-dd08e.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38108877031:android:839f410e04b35a43039242",
+        "android_client_info": {
+          "package_name": "iutinfo.lp.devmob.projetsmartspace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38108877031-r5l6hfuogel738aavqn50oaq4ediucjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjFnS0oDcpWO1afqErEAuhslYzaeWpKZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38108877031-r5l6hfuogel738aavqn50oaq4ediucjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:38108877031:android:f76ac7483a77f2e7039242",

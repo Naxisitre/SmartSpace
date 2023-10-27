@@ -6,7 +6,7 @@
     style="@style/container_light"
     android:layout_width="380dp"
     android:layout_height="wrap_content"
-    android:layout_marginTop="32dp"
+    android:layout_marginTop="20dp"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -33,7 +33,7 @@
             android:src="@drawable/lamp_off"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginBottom="10dp">

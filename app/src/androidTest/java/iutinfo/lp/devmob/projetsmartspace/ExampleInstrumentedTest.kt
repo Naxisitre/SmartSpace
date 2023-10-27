@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.projetsmartspace
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

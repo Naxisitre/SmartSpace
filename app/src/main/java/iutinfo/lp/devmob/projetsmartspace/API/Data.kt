@@ -1,4 +1,4 @@
-package iutinfo.lp.devmob.smartspace
+package iutinfo.lp.devmob.projetsmartspace.API
 
 data class Data(
     var Temperature: String,
